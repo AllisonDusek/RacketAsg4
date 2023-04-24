@@ -1,0 +1,11 @@
+#lang racket
+(define (sayHello name)
+  (print (string-append "hello, " name)))
+  
+  (define (max-list lst)
+  (cond ((null? lst) #f)
+        ((null? (cdr lst)) (car lst))
+        (else (let ((rest (max-list (cdr lst))))
+                (if (> (car lst) rest)
+                    (car lst)
+                    rest)))))
