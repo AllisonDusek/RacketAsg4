@@ -1,0 +1,11 @@
+(define (deeplist lst)
+  (cond ((null? lst) #f)
+        ((not (pair? lst)) lst)
+        (else (let ((rest (deeplist (cdr lst))))
+                (let ((current-max (deeplist (car lst))))
+                  (if (or (not rest) (> current-max rest))
+                      current-max
+                      rest))))))
+
+(define (lensort a b)
+  (< (length a) (length b)))
